@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta http-equiv="content-type" content="text/html;" />
+	<meta name="robots" content="index,follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
+
+	
+	<title>Web Notifications Demo | Tech Stream</title>
+
+	<meta name="description" content="Web Notification API allows websites to alert/notifications users outside the context of a web page, This allows web apps to send information to a user even if the application is idle."/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Web Notifications Demo " />
+	<meta property="og:image" content="<?php static_url('images'); $data->article_image();?>" />
+	<meta property="og:site_name" content="Tech Stream" />
+	<meta property="og:description" content="Web Notification API allows websites to alert/notifications users outside the context of a web page, This allows web apps to send information to a user even if the application is idle."/>
+	<meta property="og:type" content="article">
+
+	<!-- Twitter -->
+	<meta name="twitter:title" content="Web Notifications Demo " />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:image" content="<?php static_url('images'); $data->article_image();?>" />
+	<meta name="twitter:site" content="@techstream_org" />
+	<meta name="twitter:creator" content="@techstream_org" />
+	<meta name="twitter:domain" content="techstream.org" />
+    <meta name="twitter:description" content="Web Notification API allows websites to alert/notifications users outside the context of a web page, This allows web apps to send information to a user even if the application is idle."/>
+
+
+
+	<link rel="publisher" href="https://plus.google.com/109470966265063246951">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/grid.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/fonts.css" media="all">
+</head>
+
+<body>
+	<div class="main-container" id="wide">
+		<div id="top"></div>  	<!-- used to bring users to top -->
+		<header id="main-header">
+			<div class="content-inner">
+				<div class="inner-container">
+					<div class="row">
+						<div class="column-small-11 center">
+							<div class="row">
+								<div class="column-xsmall-2 center-xsmall padd0 logo">
+									<a href="<?php static_url('main');?>">Tech Stream</a>
+								</div>
+								<div class="column-xsmall-10 align-right center-xsmall padd0">
+									<a href="http://techstream.org/Web-Development/Javascript/Web-Notifications" class="button">Back To article</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end of class="inner-container" -->
+			</div><!-- end of class="content-inner" -->
+		</header><!-- end if id="main-header" -->
+		<div class="content">
+			<div class="content-inner">
+				<div class="inner-container">
+					<div class="row">
+						<div class="column-small-11 center">
+							<div class="row">
+								<div class="column-small-12"><h1 class="article-heading">Web Notifications</h1></div>
+								<div class="column-small-3">
+									<h2 class="section-heading">Status</h2>
+									<p>The blue colored buttons show the current status of notification.</p>
+									<ul>
+									 	<li><div id="inactive-status" class="button">In Active</div> </li>
+									 	<li><div id="active-status" class="button button-inactive">Active</div></li>
+									 	<li><div id="close-status" class="button button-inactive">Closed</div></li>
+									 	<li><div id="click-status" class="button button-inactive ">Click Event</div></li>
+									 	<li><div id="error-status" class="button button-inactive ">Error</div></li>
+									</ul>
+								</div>
+								<div class="column-small-7">
+									
+									<h2 class="section-heading">Make a Notification</h2>
+									<p>Fill in the following and make your own notification, make sure you have granded permission for notification.</p>
+									<form>
+										<div class="row">
+											<div class="column-small-12 padd0">
+												<label for="title">Title</label>
+												<input type="text" name="title" id="title" value="Web Notification Demo" />
+											</div>
+											<div class="column-small-12 padd0">
+												<label for="icon">Icon</label>
+												 <input type="text" name="icon" id="icon" value="http://ns2.techstream.org/favicon-64.ico" />
+											</div>
+											<div class="column-small-12 padd0">
+												<label for="body-message">Body of message</label>
+												<textarea name="body-message" id="body-message"> This is a Notification via web API</textarea>
+											</div>
+											<div class="column-small-12 padd0">
+												<div class="row notification-trigger" id="supported">
+													<div class="column-small-12 padd0">
+														<button id="show-notification" class="button">Show Notification</button>
+													</div>
+												</div>
+												<div class="row notification-trigger-unsupported" id="unsupported">
+													<div class="column-small-12 padd0">
+														<button id="button-wn-show-preset" class="button">Web Notification Not Supported</button>
+														<article>
+															<p>It seems like your browser does not support Web Notifications, please use any of the following browsers</p>
+															<ul>
+																<li>Mozilla Firefox 22+</li>
+																<li>Google Chrome 19+</li>
+																<li>Opera 25 +</li>
+																<li>Safari 6 +</li>
+															</ul>
+															<div id="log"></div>
+														</article>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+							</div> <!-- end of forms -->
+						</div>
+					</div>
+				</div> <!-- end of inner-content -->
+			</div>  <!-- end of content-inner -->
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		if (('Notification' in window) == true){ 		// Checks user agent for Web API supprot
+			
+			function notify(event){
+				event.preventDefault(); 				// Prevents form from gettin submitted
+
+				title = document.getElementById('title').value;
+	            options = {
+	              body: document.getElementById('body-message').value,
+	              icon: document.getElementById('icon').value,
+	              tag : 'techstream-notification'
+	         	};
+
+				
+				Notification.requestPermission(function(status) {
+					var notification = new Notification(title, options);	// Push Notification 
+					
+					notification.onshow = function() {
+						document.getElementById('active-status').classList.remove('button-inactive');
+
+						document.getElementById('inactive-status').classList.add('button-inactive');
+						document.getElementById('click-status').classList.add('button-inactive');
+						document.getElementById('close-status').classList.add('button-inactive');
+						document.getElementById('error-status').classList.add('button-inactive');
+					}
+
+					notification.onclick = function() {
+						document.getElementById('click-status').classList.remove('button-inactive');
+
+					}
+
+					notification.onclose = function() {
+						document.getElementById('active-status').classList.add('button-inactive');
+						document.getElementById('close-status').classList.remove('button-inactive');
+					}
+
+					notification.onerror = function() {
+						document.getElementById('error-status').classList.remove('button-inactive');
+
+						document.getElementById('inactive-status').classList.add('button-inactive');
+						document.getElementById('click-status').classList.add('button-inactive');
+						document.getElementById('close-status').classList.add('button-inactive');
+						document.getElementById('active-status').classList.add('button-inactive');
+					}
+				});
+			}
+			document.getElementById('show-notification').addEventListener('click', notify);
+		}else{
+
+			// Disable Trigger Buttons if the browser does not support Web Notifications
+
+			document.getElementById('supported').classList.add('notification-trigger-unsupported');
+	    	document.getElementById('unsupported').classList.remove('notification-trigger-unsupported');
+
+		}
+		
+	</script>
+</body>
+</html>

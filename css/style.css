@@ -1,0 +1,372 @@
+/* Pre Styles */
+header, footer, article, nav, section, aside, hgroup{
+	display:block;
+}
+
+html, body, header, footer, article, nav, section, aside, time, h1, h2, h3, p, a, ul, li, dl, dd, dt, table, thead, tfoot, tbody, th, tr, td{
+	border:0;
+	margin:0;
+	outline:0;
+	padding:0;
+}
+
+html{  
+	height: 100%; 
+	overflow-y: scroll;
+}
+
+body {
+    color: rgba(0,0,0,0.9);
+    font: 17px Sans-Pro, arial,"Times New Roman",Times,serif;
+    font-weight: normal;
+    text-rendering: optimizelegibility;
+    -moz-font-smoothing:antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+img{
+	border: 1px solid rgba(0,0,0,0.1);
+	display: block;
+	max-width: 100%;
+}
+
+ol, ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.inline-list li{
+	display: inline-block;
+}
+
+.bullet-list li{
+	list-style: disc;
+}
+
+p{
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: 0.7em 0 0 0;
+}
+
+strong{
+	font-weight: bold;
+}
+
+article{
+	padding-bottom: 2rem;
+}
+
+article p, article li, 
+.bits-article p, 
+.bits-article li{
+    font-size: 1.2rem;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    line-height: 1.75em;
+    margin-top: 0.7rem;
+}
+
+article ul{
+	list-style: square;
+	padding-left: 2rem;
+}
+
+article ol{
+	list-style: decimal;
+	padding-left: 3rem;
+}
+
+article a{
+	border-bottom: 1px solid rgba(22, 129, 249,0.2);
+	text-decoration: none;
+}
+
+article h1 a, article h2 a, article h3 a{
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	color: rgba(0,0,0,1) !important;
+}
+
+article a:hover{
+	border-color: rgba(22, 129, 249,1);
+	text-decoration: none;
+}
+
+article a img{
+	border-bottom: 5px solid transparent;
+}
+
+article a:hover img{
+	border-bottom: 5px solid rgba(22, 129, 249,1);
+}
+
+article img{
+	margin:5px auto;
+	position: relative;
+}
+
+article img+small{
+	color: rgba(0,0,0,0.4);
+	display: block;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	font-style: italic;
+	margin: 1rem auto 0; 
+	width: 80%;
+}
+
+blockquote{
+	border-left: 3px solid rgba(0,0,0,0.2);
+	font-style: italic;
+	margin-left: 0;
+	padding-left: 20px;
+}
+
+blockquote p{
+	padding: 0;
+}
+
+article h1, article h2, article h3, article h4{
+	margin-top: 35px;
+	margin-bottom: 0px;
+}
+
+a{
+	color: rgba(22, 129, 249,1);
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited{
+	color: rgba(13,89,195,1);
+}
+
+pre{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+pre code{
+    background-color: rgba(240,240,237,0.6);
+	font-size: 0.9em;
+    line-height: 1.6em;
+	margin: 1em 0px;
+	padding-left: 1.5em;
+    position: relative;
+}
+
+pre code:before{
+	border-bottom: 1px solid rgba(229,229,229,0.5);
+	color: #ccc;
+	content: "\f071  IT'S CODE HERE";
+	font-family: FontAwesome, "Open sans";
+	font-size: 0.6em;
+	position:absolute;
+	right: 0em;
+	top: -0.02rem;
+}
+
+pre code:hover:before{
+	color: #000;
+}
+
+code{
+	background: rgba(240,240,237,1);
+	font-size: 0.9rem;
+	padding: 0px 3px;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+h1.light, h2.light, h3.light, h4.light, h5.light, h6.light { 
+	font-weight: normal; 
+	font-color:rgba(0,0,0,0.6);
+}
+
+h1 {
+    font-size: 36px;
+}
+ 
+
+h2 {
+    font-size: 30px;
+}
+ 
+h3 {
+    font-size: 24px;
+}
+ 
+h4 {
+    font-size: 18px;
+}
+ 
+h5 {
+    font-size: 14px;
+}
+ 
+h6 {
+    font-size: 12px;
+}
+
+h5, h6{
+	padding: 0;
+	margin:0;
+}
+
+/* Custom Heading Styles */
+.section-heading{
+	border-bottom: 5px solid rgba(0,0,0,0.1);
+	font-size: 1rem;
+	margin-bottom: 0;
+	padding: 5px;
+	position: relative;
+	width: 100%;
+}
+
+.section-heading:after{
+	bottom: 5px;
+	color: rgba(0,0,0,0.2);
+	content: "\f175";
+	cursor: default;
+	font-family: 'FontAwesome';
+	font-size: 0.7rem !important;
+	position: absolute;
+	right: 10px;
+}
+
+/*Download Links & Buttons & inputs */
+
+button, input, select, textarea {
+	font-family: sans-serif !important;
+	min-height: 35px;
+	margin: 0;
+	overflow: visible;
+	width: auto;
+}
+
+textarea{
+	min-height: 5rem;
+}
+
+label{
+	margin-top: 1rem;
+	display: block;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="file"]), 
+textarea {
+	background: rgba(238,238,238,1);
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 0px;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.04);
+	color:rgba(0,0,0,0.6);
+	font-style: italic;
+	margin:0;
+	outline: 0;
+	padding:7px;
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+input[type="submit"], 
+.download_a,
+.button,
+button {
+	background: rgba(22, 129, 249,0.8);
+	border: 0px none;
+	border-bottom: 4px solid rgba(0,0,0,0.4);
+	border-radius: 0px;
+	color: rgba(255,255,255,1) !important;
+	cursor: pointer;
+	font-weight: bold;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	top: -2px;
+}
+
+.button-inactive{
+	background-color: rgba(0,0,0,0.4) !important;
+}
+
+input[type="submit"]{
+	position: relative;
+	top: 1px;
+}
+
+input[type="submit"]:hover, 
+.download_a:hover,
+.button:hover {
+	background:rgba(22, 129, 249,1);
+	border-bottom: 4px solid rgba(0,0,0,0.4);
+	text-decoration: none;
+}
+
+.searchbar{
+	margin-top: 15px;
+}
+
+.download_a, 
+.button {
+	font-size: 0.9rem;
+	display: inline-block;
+	margin-top: 1rem;
+	min-width: 150px;
+	padding: 8px;
+}
+
+.button .fa{
+	font-size: 80% !important;
+}
+/* End of input */
+.content-inner{
+	margin: 0 auto;
+	width: 100%;
+}
+
+#wide .inner-container{
+	max-width: 1280px;
+	width:100%;
+}
+
+.inner-container{
+	margin:0 auto;
+	max-width: 1080px;
+	padding: 0 10px;
+	position: relative;
+	width: 100%;
+}
+
+#main-header{
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	min-height: 50px;
+	width: 100%;
+}
+
+.logo a{
+	background: url('../images/logo.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: block;
+	height: 70px;
+	text-indent: -999px;
+	width: 90px;
+}
+
+/* Ads */
+
+.align-right{
+	text-align: right;
+}
+.notification-trigger-unsupported{
+	display: none;
+}
